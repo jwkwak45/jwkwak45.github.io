@@ -1,0 +1,130 @@
+
+<html>
+        <head>
+    
+        </head>
+    
+        <body>
+
+            <script>
+            var arr = [];
+            console.log(arr.length);
+
+            arr[100] = 10;
+            console.log(arr.length);
+            arr.abc = "abc";
+            console.log(arr.abc);
+
+            ///오브젝트에서 속성지정하는것과 동일하게 작동한다.
+            arr["100"] = 20;
+            console.log(arr[100]);
+
+            //배열 관련 메소드
+            var arr2 = [100,50,1,4,5] ///이대로 소트 하면 문자로 취급하여 정렬
+            var compareTo  = function(a,b){
+                if (a > b) return 1;
+                else if(a==b) return 0;
+                else return -1;
+            };
+            arr2.sort(compareTo);
+            console.log(arr2);
+
+            //stack
+            arr2.push(1,2,3,4,5,6);
+            console.log(arr2);
+            arr2.pop();
+            arr2.pop();
+            arr2.pop();
+            arr2.pop();
+            console.log(arr2);
+
+            //queue
+            arr2.shift();
+            console.log(arr2);
+
+            var sum = 0;
+            for(var i = 0; i<arr2.length; i++){
+                sum += arr2[i];
+            }
+            console.log(sum);
+
+            sum = 0;
+            var f = function(v,index){
+                console.log(v, index);
+                sum += v;
+
+            }
+            arr2.forEach(f);
+            console.log("arr::forEach", sum);
+
+            sum = 0;
+            var forEach = function(f){
+                for(var i = 0; i<arr2.length; i++){
+                    f(arr2[i], i );
+                }
+            };
+
+            sum = 0;
+            forEach(f);
+            console.log("forEach Function", sum);
+
+            //scope는 식별자의 이름을 인식할 수 있는 범위. 자신을 기준으로 보다 상위의 것들에서 식별자의 이름을 찾는다.
+
+            var ga = 100, gb = 200;
+            var outer = function(oa, ob){
+                var ola = oa*2, olb = ob*2;
+                var inner = function(ia, ib){
+                    var ila = ia*2 , ilb = ib*2;
+                    console.log(
+                        'oa', oa, 'ob', ob,
+                        'ola', ola, 'olb', olb,
+                        'ia', ia, 'ib', ib,
+                        'ila', ila, 'ilb',ilb,
+                        'ga', ga, 'gb', gb,
+                        //'i2', i2
+
+                    )
+                };
+                var inner2 = function(i2, i3){}
+                inner(ola, olb);
+            };
+            outer(1, 2);
+
+            var check = 100;
+            var outer2 = function(){
+
+                //var check = 50;
+                var inner = function(){
+                    //var check = 10;
+                    console.log(check)
+                }
+                inner();
+            }
+            outer2();
+
+            
+            /* 
+            var sort = function(f){
+                for(var i = 0; i < arr.length; i++){
+                    var a = arr2[i];
+                    for(var j =0; j<arr2.length; j++){
+                        if(i==j) continue;
+                        var b = arr2[j];
+                        if(f(a, b) == 1){
+
+                        }
+                        else if(f(a,b)==0){}
+                        else{}
+
+
+                    }}
+
+            }
+            */
+
+            </script>
+    
+        </body>
+    
+    </html>
+    

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet">
+        <style>
+            div{color: #ff0000;
+            font-size: 20px;
+            font-family: 'Lobster Two', cursive;}
+
+            p{color: rgb(190,170,30);
+            font-family: monospace;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: underline}
+
+            span{font-size: 40px;} /*tag*/
+            #test{font-size: 60px;color: green;display: block} /*id*/
+            .test2{background: aqua} /*class*/
+            h1 div span{color: red;}
+            h1 > span{text-decoration: underline}
+            span .test2{background: yellow}
+
+
+        </style>
+    </head>
+    <body>
+        <h1>text
+            <div><span>span1</span></div>
+            <span>span2</span>
+        </h1>
+        <span>a</span>
+        <span>b</span>
+        <span class="test2">a</span>
+        <span>b</span>
+        <span id="test" class="test2">a</span>
+        <span>b</span>
+        <span class="test2">a</span>
+        <span class="test2" style="font-size: 80px">b</span>
+        <span>a</span>
+        <span>b</span>
+
+
+        <div>test1</div>
+        <div><span class="text2">test2</span></div>
+        <p>test3</p>
+        <p>test4</p>  
+        <section style="color: blue; font-size: 800%">section1  
+            <section style="color: blue; font-size: 70%">section1 
+                <section style="color: blue; font-size: 70%">section1 
+                    </section> 
+                </section>
+            </section> 
+        
+    </body>
+
+</html>

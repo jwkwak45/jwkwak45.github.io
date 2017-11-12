@@ -1,0 +1,60 @@
+
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <section class="testover">
+            <h2></h2>
+            <div></div>
+        </section>
+
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
+        <script>
+            //스크립트를 제일 마지막에 둬서 dom 레디를 하지 않는다.
+
+            var model = {
+                title:{
+                    over:"test overed",
+                    out:"test"
+
+                },
+                count:0
+
+            };
+            $(".testover").click(function(e){
+                e.stopImmediatePropagation();
+                var children =  $(e.currentTarget).children();
+                console.log(children)
+                $(children[0]).html(model.title.over)
+                $(children[1]).html(model.count++);
+                //윗부분 알아보기.
+            })
+
+            var init = function(){
+                $( $(".testover").children()[0]).html(model.title.out);
+            };
+            init();
+            // 마우스아웃을 변수에 할당한 이유. 아웃은 처음부터 호출되어 있어야 하기 때문
+
+            /*
+            위의 코드와 완전히 동일함.
+            var mouseout =  function(e){
+                var children =  $(e.target).children
+                $(chiildren[0]).html(model.title.out)
+                
+            }
+            $(".testover").mouseout(mouseout);
+            */
+        
+        </script>
+        
+    </body>
+
+</html>
+

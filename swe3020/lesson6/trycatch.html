@@ -1,0 +1,45 @@
+
+<html>
+    <head>
+
+    </head>
+
+    <body>
+       
+        <input type="text" id="data" value="100">
+        <div id = "msg"></div>
+        <!-- <img src="aa.png" id = "img1" alt="" a="3"> -->
+        <script>
+            /* 
+        var img = document.getElementById("img1");
+        console.log(img.src, img.id, img.a);
+            */
+            
+        var target = document.getElementById("data");
+        var msg = document.getElementById("msg");
+        var solution = 53;
+        var test = function(){
+            var result = "ok";
+            //기본값을 미리 지정.
+            try{
+                var x = target.value;
+                if (x == "") throw "빈값";
+                else if(isNaN(x)) throw "숫자가 아님";
+                ///위에서 숫자가 아닌것들을 제외 하고 난 뒤. 여기서 else를 통해 배타적 코드로 짜놓는것.
+                else x = Number(x);
+                if(x > solution) throw "크다";
+                else if(x< solution) throw "작다";
+                    //// throw 된게 e
+            }catch(e){
+               result = e;
+
+            }
+            msg.innerHTML = result;
+        };
+        target.onkeyup = test;
+        
+        </script>
+    </body>
+
+</html>
+

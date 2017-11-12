@@ -1,0 +1,21 @@
+{
+    "result":"ok",
+    "data": [
+        {"id":1,
+        "name":"오늘 할 일",
+        "color":"blue",
+        "icon":"sun",
+        "count":0
+        },
+        {"id":2,
+            "name":"To-Do",
+            "color":"blue",
+            "icon":"check",
+            "count":0
+         }
+
+
+    ]
+
+
+}

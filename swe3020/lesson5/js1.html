@@ -1,0 +1,47 @@
+
+<html>
+    <head>
+
+    </head>
+
+    <body>
+
+        <script>
+        var test = {};
+        //리터럴 - 더 이상 쪼갤 수 없는 값의 표현
+        // 숫자 리터럴  1 1.2 0.34 -4
+        /// 문자 리터럴 "1111" '34545'
+        // 불린, null, undefined.
+        //객체 리터럴
+        // 오브젝트 리터럴 {k: v, k:v...}
+        // 배열 리터럴[el, el, ....]
+        //정규식 리터럴/ 정규식표현
+        //함수리터럴 function{이름}(인자)
+
+        //hashmap hash+map -> hashfunction 을 이용하는 map 의 자료구조
+
+        var test = {"f":"function", "b":"boolean", n:"number",
+         "a0":"aaa",
+         "a1":"bbb",
+         "a2":"ccc",
+         "a3":"ddd",
+
+        }; 
+        /// 키를 줄때 자바는 기본적으로 문자열로 인식한다고 함...
+        /// 속성의 키는 숫자로 줄 수 있지만, 그것이 변수명명 법칙과 다르면 바로 불러올 수 는 없다.
+        test.abc = 1234;
+        //test[식 = 값 => 문자열로 변환]
+        console.log(test.abc, test.f, test.b, test.n, test[0], test[1-1], test["0"]);
+
+        for(var i = 0; i < 4; i++){
+            console.log(test["a" + i]);
+        }
+
+
+        
+        
+        </script>
+
+    </body>
+
+</html>

@@ -1,0 +1,83 @@
+
+<html>
+        <head>
+    
+        </head>
+    
+        <body>
+            <p id="test"> data</p>
+            <div>
+                <div>
+                    inner
+
+                </div>
+
+            </div>
+
+            <script>
+            //DOM Document Object Model
+            
+            var body = document.body;
+            console.log(body.children[1].children[0].innerHTML);
+            console.log(document.getElementsByTagName("div"))
+            console.log(document.getElementById("test").innerHTML = "안녕하세요")
+
+            var panel = document.getElementById("test");
+            var log = function(data){
+
+                panel.innerHTML = data;
+            };
+            var brightness = function(color){
+                panel.style.backgroundColor = "rgb("+ color+ "," +color+ ","+ color+ ")"
+            };
+
+            panel.addEventListener("click", function(event){
+                alert("hello")
+            });
+
+            (function(){
+                var brightness = function(color){
+                panel.style.backgroundColor = "rgb("+ color+ "," +color+ ","+ color+ ")"
+            };
+
+                panel.addEventListener("mouseover", function(event){
+                brightness(200);
+            })
+            })();
+           
+            panel.addEventListener("mouseout", function(event){
+                brightness(255);})
+            /*var count = 0;
+            setInterval(function(){
+                if (count < 255){
+                    count++;
+
+                } else count = 0;
+                log(count);
+                brightness(count)}, 100);
+            */
+            
+            /*var html = new HTML();
+            var head = new HEAD();
+            var body = new BODY();
+            html.appendChild(head);
+            html.appendChild(body);
+
+            var p = new P();
+            var div = new DIV();
+            var div2 = new DIV("inner");
+            div.appendChild(div2);
+            body.appendChild(p);
+            body.appendChild(div);
+             */
+            
+            // BOM browser object model
+
+
+            </script>
+    
+        </body>
+    
+    </html>
+    
+    

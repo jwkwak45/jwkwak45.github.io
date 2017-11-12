@@ -1,0 +1,32 @@
+*{box-sizing: border-box}
+
+dt{
+    background: #88c1c8;
+    border-bottom: 1px solid #989ea4;
+    border-top: 1px solid #717db5;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    font-family: sans-serif;
+    margin-top: 20px;
+    padding: 2px 0 0 12px;
+    position: sticky;
+    top: -1;
+
+}
+
+dd{
+font-weight: bold;
+font-size: 20px;
+font-family: sans-serif;
+line-height: 45px;
+margin: 0px;
+padding-left: 12px;
+
+
+}
+
+dd+dd{
+    border-top: 1px solid #cccccc;
+}

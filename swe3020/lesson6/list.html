@@ -1,0 +1,40 @@
+
+<html>
+    <head>
+
+    </head>
+
+    <body>
+            <div id="log"></div>
+            <ul> <!-- ///공백도 텍스트 노드..?? -->
+                <li>item1</li>
+                <li>item2</li>
+                <li>item3</li>
+                <li>item4</li>
+                <li>item5</li>
+            </ul>
+
+        <script>
+        var panel = document.getElementById("log");
+        var log = function(v){
+            panel.innerHTML = panel.innerHTML + "<br>" + v;
+        }
+        var ul = document.getElementsByTagName("ul")[0];
+        log("children vs childNode : " +ul.children.length + "," + ul.childNodes.length);
+        log("firstElementChild vs firstChild : " + ul.firstElementChild + "," + ul.firstChild );
+        log("nextElementSibling vs nextSibling : " + ul.children[2].nextElementSibling + "," + ul.children[2].nextSibling );
+
+        class Element extends Node{}
+        
+
+        //firstChild 와 nextSibling 만 이용하여 특정 엘리먼트 하위의 모든 노드를 탐색하는 루프를 작성하시오..
+
+
+
+
+        </script>
+
+    </body>
+
+</html>
+

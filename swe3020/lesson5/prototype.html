@@ -1,0 +1,91 @@
+
+<html>
+        <head>
+    
+        </head>
+    
+        <body>
+
+            <script>
+            //프로토타입, 자바스크립트에서는 고유명사라고 생각해도 된다.
+            //클래스 시스템을 대체하기 위한 것이라고 생각.
+            
+            /*class Student{
+                이렇게 클래스는 새로운 버전에서만 가능
+            };*/
+            var Student = function(name, grade){
+                //if(this instanceof Student){
+                this.name = name;
+                this.grade = grade;
+                //this.display = function(){
+                  //  console.log(this.name + "::" + this.grade);
+              //  }
+            //}else{
+              //  return new Student(name, grade)
+            }
+            Student.action = function(){};
+            Student.prototype = new Person();
+            Student.prototype.display = function(){
+                console.log(this.name + "::" + this.grade);
+            
+            };
+
+            //Student.prototype
+            //var f = function(){}
+            //f.prototype
+            //var st1 = Student("kwak",1);
+            //console.log(st1.name, st1.grade);
+
+            /* 자바에서라면...
+            class Student{
+                String name;
+                int grade;
+                public Student(name, grade){
+                    this.name = name;
+                    this.grade = grade;
+                }
+
+                public void display(){
+                    System.out.println(this.name + "::" + this.grade)
+                }
+            }
+            */
+
+            //자바 스크립트 상속 방법
+            class Student extends Person{
+               
+            }
+            var Base = function(){}
+            var Extended = function(){}
+            Extended.prototype = new Base();
+
+
+            var student = new Student("kwak", 1);
+
+            console.log(student.display());
+
+            //console.log(student.name, student.grade);
+            //console.log(student instanceof Student);
+            // 모든함수들이 인스턴스를 생성할 수 있는 기능이 내재되어 있다..
+            // 단지 new 를 붙여서 사용하면 생성자로 작동하고 그냥 호출하면 함수로 작동할 뿐.
+            
+            /*
+            var a = new Array();
+            var b = Array();
+            var c = new Date();
+            var d = Date();
+            var f = new Object();
+            var g = Object();
+            */
+            
+            
+            
+            
+            
+            </script>
+
+    
+        </body>
+    
+    </html>
+    

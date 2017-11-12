@@ -1,0 +1,32 @@
+
+<html>
+        <head>
+    
+        </head>
+    
+        <body>
+            <script>
+                var farr = [
+                    function double(v){return v*2;},
+                    function triple(v){return v*3;},
+                    function q(v){return v*v;},
+                ];
+
+                var executor = function(f,v){
+                    return f(v);
+                }
+                
+                for(var i = 0, j = farr.length; i<j; i++ )
+                {
+                    console.log(executor(farr[i], 10));
+                }
+
+
+            </script>
+
+
+        </body>
+    
+    </html>
+    
+    
