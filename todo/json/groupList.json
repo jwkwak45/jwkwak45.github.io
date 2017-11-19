@@ -12,8 +12,14 @@
             "color":"blue",
             "icon":"check",
             "count":0
+         },
+         {"id":3,
+            "name":"To-Do",
+            "color":"blue",
+            "icon":" &#8942;&#9776;",
+            "count":0
          }
-
+        
 
     ]
 
