@@ -2,7 +2,7 @@
     <head>
     </head>
     <body>
-
+        
         <div id = "list">
         
 
@@ -24,7 +24,12 @@
 
     $.each(data.data,function(i,n){
         $("#list").append( n.icon + " "+ n.name  + "<br>");
-        
+        if (n.icon = sun){
+          n.icon.attr('src','https://jwkwak45.github.io/todo/json/sun.svg');
+        }
+        if (n.icon = check){
+          n.icon.attr('src','https://jwkwak45.github.io/todo/json/check.svg');
+        }
         
     });
 
@@ -34,6 +39,7 @@
 
     $.get("https://jwkwak45.github.io/todo/json/groupAdd.json", function(data, status){
         console.log(data);
+
        
     
     });

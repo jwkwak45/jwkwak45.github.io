@@ -10,7 +10,7 @@
         {"id":2,
             "name":"To-Do",
             "color":"#2971b8",
-            "icon":"https://jwkwak45.github.io/todo/json/sun.svg",
+            "icon":"check",
             "count":0
          },
          {"id":3,
