@@ -4,10 +4,11 @@
     <body>
 
         <div id = "list">
+        
 
         </div>
 
-        <div style="color: #5166af">
+        <div id ="addbutton", style="color: #5166af">
         + 새 목록
         </div>
     
@@ -22,14 +23,20 @@
    
 
     $.each(data.data,function(i,n){
-        $("#list").append( n.icon + " "+ n.name + ": " + "<br>");
+        $("#list").append( n.icon + " "+ n.name  + "<br>");
+        
+        
     });
 
   
 
     });
 
+    $.get("https://jwkwak45.github.io/todo/json/groupAdd.json", function(data, status){
+        console.log(data);
+       
     
+    });
 
     </script>
     </body>
