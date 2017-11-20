@@ -27,20 +27,20 @@
          },
          {"id":5, 
             "name":"과제", 
-            "color":"#2971b8",
+            "color":"purple",
             "icon":"&#8942;&#9776;", 
             "count":0
          },
          {"id":6, 
             "name":"축구부", 
             "color":"#2971b8",
-            "icon":"U+26BD", 
+            "icon":"&#x26BD;", 
             "count":0
          },
          {"id":7, 
             "name":"가족행사", 
             "color":"#2971b8",
-            "icon":"U+1F46A", 
+            "icon":"👪", 
             "count":0
          }
          

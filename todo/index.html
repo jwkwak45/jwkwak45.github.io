@@ -15,6 +15,25 @@
 
         }
         
+        #inputlist{
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            position: absolute;
+            top: 40%;
+            left: 40%;
+
+            
+           
+        }
+
+        span.count{
+            position: absolute;
+            right: 5%;
+            color: gray;
+
+        }
+        
         </style>
         <!-- 새 목록 추가 버튼은, 안드로이드 어플을 따라 바닥에 고정으로 하였습니다. PC 버전은 살짝 다른것으로 알고 있습니다. -->
         
@@ -56,7 +75,7 @@
             n.count = ""
         }
 
-        $("#list").append( "<div>"+ n.icon + "&nbsp;&nbsp;"+ n.name  +"<p align = right>"+ n.count + "</p>  </div>");
+        $("#list").append( "<div>"+ n.icon + "&nbsp;&nbsp;"+ n.name  +'<span class = "count">'+ n.count + "</span>  </div>");
        
         
     });
@@ -66,10 +85,20 @@
     });
 
     $("#addbutton").click(function(e){
+        /*
+        var inputlist = '<div id = "inputlist"> 새 목록 <br><br> <input type="text" id="newname" value="제목 없는 목록" > <br> <span id="cancelInput">취소</span>  <span id ="saveInput"> 저장 </span>    </div>'
+        $("body").append(inputlist)
+
+        새로운 요소를 띄우고 그 안에 입력을 받으려 했는데, 이 부분은 앱에서는 목록으로 넘어가는것 같아 일단 보류 하였습니다.
+       */
+        
 
 
 
-    $.get("https://jwkwak45.github.io/todo/json/groupAdd.json" ,  function(data, status){
+
+
+
+    $.get("https://jwkwak45.github.io/todo/json/groupAdd.json" ,   function(data, status){
         console.log(data);
        
         $.each(data.data,function(i,n){
