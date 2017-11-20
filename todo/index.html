@@ -32,7 +32,7 @@
         };
 
         if (n.icon == "&#8942;&#9776;"){
-            $(n.icon) = '<font color = "'+ n.color +'">' + n.icon + "</font>"
+            n.icon = '<font color = "'+ n.color +'">' + n.icon + "</font>"
         }
 
         $("#list").append( "<div>"+ n.icon + " "+ n.name  + "</div>");

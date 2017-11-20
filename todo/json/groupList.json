@@ -14,8 +14,8 @@
             "count":0
          },
          {"id":3,
-            "name":"To-Do",
-            "color":"#2971b8",
+            "name":"제목 없는 목록",
+            "color":"green",
             "icon":"&#8942;&#9776;",
             "count":0
          }
