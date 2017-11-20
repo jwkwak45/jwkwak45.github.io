@@ -1,27 +1,9 @@
 {
     "result":"ok",
     "data": [
-        {"id":1,
-        "name":"오늘 할 일",
-        "color":"#2971b8",
-        "icon":"sun",
-        "count":0
-        },
-        {"id":2,
-            "name":"To-Do",
-            "color":"#2971b8",
-            "icon":"check",
-            "count":0
-         },
-         {"id":3,
-            "name":"제목 없는 목록",
-            "color":"green",
-            "icon":"&#8942;&#9776;",
-            "count":0
-         },
         
-         {"id":4, 
-            "name":"제목 없는 목록 (1)", 
+         {"id":0, 
+            "name":"제목 없는 목록", 
             "color":"#2971b8",
             "icon":"&#8942;&#9776;", 
             "count":0

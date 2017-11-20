@@ -1,12 +1,31 @@
 <html>
     <head>
+
+        <style>
+
+        div{
+            height: 35px;
+        }
+
+        #addbutton{
+           
+            position: fixed;
+            bottom: 5px;
+
+
+        }
+        
+        </style>
+        <!-- 새 목록 추가 버튼은, 안드로이드 어플을 따라 바닥에 고정으로 하였습니다. PC 버전은 살짝 다른것으로 알고 있습니다. -->
+        
+        
     </head>
     <body>
         
-        <div id = "list">
+        <section id = "list">
         
 
-        </div>
+        </section>
 
         <div id ="addbutton", style="color: #5166af">
             + 새 목록 
@@ -20,8 +39,6 @@
     <script>
     $.get("https://jwkwak45.github.io/todo/json/groupList.json", function(data, status){
     console.log(data);
-   
-
     $.each(data.data,function(i,n){
         if (n.icon == "sun"){
           
@@ -35,7 +52,11 @@
             n.icon = '<font color = "'+ n.color +'">' + n.icon + "</font>"
         }
 
-        $("#list").append( "<div>"+ n.icon + " "+ n.name  + "</div>");
+        if (n.count == "0"){
+            n.count = ""
+        }
+
+        $("#list").append( "<div>"+ n.icon + "&nbsp;&nbsp;"+ n.name  +"<p align = right>"+ n.count + "</p>  </div>");
        
         
     });
@@ -43,11 +64,14 @@
   
 
     });
+
     $("#addbutton").click(function(e){
-    
-    
-    $.get("https://jwkwak45.github.io/todo/json/groupAdd.json", function(data, status){
+
+
+
+    $.get("https://jwkwak45.github.io/todo/json/groupAdd.json" ,  function(data, status){
         console.log(data);
+       
         $.each(data.data,function(i,n){
         if (n.icon == "sun"){
           
@@ -56,8 +80,12 @@
         if (n.icon == "check"){
             n.icon = "<img src = " + '"https://jwkwak45.github.io/todo/json/check.svg"' +"width = '20px'; height = '20px';"+ "/>"
         };
-        $("#list").append( n.icon + " "+ n.name  + "<br>");
-      
+
+        if (n.icon == "&#8942;&#9776;"){
+            n.icon = '<font color = "'+ n.color +'">' + n.icon + "</font>"
+        }
+       
+        $("#list").append( "<div>"+ n.icon + "&nbsp;&nbsp;"+ n.name  + "</div>");
         
     });
        
