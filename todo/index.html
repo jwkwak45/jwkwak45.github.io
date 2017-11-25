@@ -46,7 +46,7 @@
 
         </section>
 
-        <div id ="addbutton", style="color: #5166af">
+        <div id ="addbutton", style="color: #5166af; background: white; width:100% " >
             + 새 목록 
         </div>
     
@@ -56,15 +56,16 @@
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
     <script>
-    $.get("https://jwkwak45.github.io/todo/json/groupList.json", function(data, status){
-    console.log(data);
-    $.each(data.data,function(i,n){
+    
+    var Render = function(data,status){
+        console.log(data);
+        $.each(data.data,function(i,n){
         if (n.icon == "sun"){
           
-         n.icon = "<img src = " + '"https://jwkwak45.github.io/todo/json/sun.svg"' +"width = '20px'; height = '20px';"+ "/>"
+         n.icon = "<img src = " + '"https://jwkwak45.github.io/todo/source/sun.svg"' +"width = '20px'; height = '20px';"+ "/>"
         };
         if (n.icon == "check"){
-            n.icon = "<img src = " + '"https://jwkwak45.github.io/todo/json/check.svg"' +"width = '20px'; height = '20px';"+ "/>"
+            n.icon = "<img src = " + '"https://jwkwak45.github.io/todo/source/check.svg"' +"width = '20px'; height = '20px';"+ "/>"
         };
 
         if (n.icon == "&#8942;&#9776;"){
@@ -80,9 +81,9 @@
         
     });
 
-  
-
-    });
+    }
+    
+    $.get("https://jwkwak45.github.io/todo/json/groupList.json", Render);
 
     $("#addbutton").click(function(e){
         /*
@@ -91,29 +92,12 @@
 
         새로운 요소를 띄우고 그 안에 입력을 받으려 했는데, 이 부분은 앱에서는 목록으로 넘어가는것 같아 일단 보류 하였습니다.
        */
-        
+
+       var newname = prompt("새 목록")
+
+    $.get("https://jwkwak45.github.io/todo/json/groupAdd.json" , {"name":newname},Render);
 
 
-
-
-
-
-    $.get("https://jwkwak45.github.io/todo/json/groupAdd.json" , function(data, status){
-        console.log(data);
-
-        $.each(data.data,function(i,n){
-
-
-        if (n.icon == "&#8942;&#9776;"){
-            n.icon = '<font color = "'+ n.color +'">' + n.icon + "</font>"
-        }
-       
-        $("#list").append( "<div>"+ n.icon + "&nbsp;&nbsp;"+ n.name  + "</div>");
-        
-    });
-       
-    
-    });
     });
 
     </script>
