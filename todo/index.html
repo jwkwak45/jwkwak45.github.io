@@ -94,6 +94,22 @@
     $("#list").on('click',".tl",function(e){
 
         var idvalue = $(this).attr("idvalue")
+
+        var listname ="";
+        var icon = "";
+        var color = "";
+
+        $.get("https://jwkwak45.github.io/todo/json/groupList.json",{id:idvalue},function(data,status){
+            $.each(data.data,function(i,n){
+                if(n.id == idvalue){
+                    listname = n.name;
+                    icon = n.icon;
+                    color = n.color;
+
+                }
+            });
+           
+        });
         
         
         console.log( idvalue)

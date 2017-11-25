@@ -45,7 +45,7 @@
 
          { "id":3, 
             "name":"할일 4",
-            "myday":true, 
+            "myday":false, 
             "duedate":"2017:11:15", 
             "fre_alert":"2017:11:15:11:50", 
             "note": "hi", 
