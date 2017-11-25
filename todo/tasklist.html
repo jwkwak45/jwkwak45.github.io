@@ -3,6 +3,44 @@
         <head>
 
             <style>
+
+                body{
+
+                    margin: 0px;
+                }
+
+                div{
+                 height: 35px;
+             }
+
+                #header{
+
+                    background-color: #6465ea;
+                    
+                    height: 100px;
+
+
+                }
+
+                #backtolist{
+
+                    position: absolute; left: 3%; top:3%
+
+                }
+
+                #detailmenu{
+                    position: absolute; right: 3%; top:3%
+                }
+
+                #addbutton{
+                    width: 50px;
+                    height: 50px;
+                    position: absolute; right: 5%; bottom:5%
+                }
+
+
+
+                
             
 
             </style>
@@ -12,11 +50,22 @@
     
         <body>
 
+            <!--테마는 현재 적용하지 않았습니다. -->
+
             <section id= "header">
-            <div id="menu">&#9776;</div>
+
+            <div id="menu" style="color:white"> <span id= "backtolist"> &#9776;  </span>   <span id=detailmenu> &#8942; </span></div>
             
 
             </section>
+
+            <section id = "list">
+
+
+            </section>
+
+
+            <img src="https://jwkwak45.github.io/todo/source/plus.svg" id = "addbutton" alt="addbutton">
 
 
                 <script
@@ -26,6 +75,65 @@
 
 
             <script>
+
+                idvalue = 3;
+
+        var Render = function(data,status){
+        console.log(data);
+        $.each(data.data,function(i,n){
+            var done = "";
+            var myday = "";
+            var duedate = "";
+            var repeat = "";
+            var alarm = "";
+            var note = "";
+
+            if(n.done == false){
+                done =  "<img src = " + '"https://jwkwak45.github.io/todo/source/check_undone.svg"' +"width = '20px'; height = '20px';"+ "/>";
+
+            }
+            else {
+                done = "<img src = " + '"https://jwkwak45.github.io/todo/source/check_done.svg"' +"width = '20px'; height = '20px';"+ "/>";
+            }
+
+        if(n.myday != null){
+            myday = '☀ <span style="color:#6465ea">오늘할일 </span>';
+        }
+
+        if(n.duedate != null){
+
+
+            if(n.repeat != null){
+                repeat = "↺";
+            }
+
+        }
+
+        if(n.fre_alert != null){
+            alarm = "<img src = " + '"https://jwkwak45.github.io/todo/source/alarmclock.svg"' +"width = '10px'; height = '10px';"+ "/>";
+        }
+
+        if(n.note != null){
+
+            note = "<img src = " + '"https://jwkwak45.github.io/todo/source/note.svg"' +"width = '10px'; height = '10px';"+ "/>";
+        }
+
+
+       
+
+        if(n.id = idvalue){
+
+            $("#list").append( '<div class="tasks">'+ done + "&nbsp;&nbsp;"+ n.name  +'<br><span class = "detail">'+ myday +alarm+note+ "</span>  </div>");
+            
+        }
+       
+       
+        
+    });
+
+    }
+
+            $.get("https://jwkwak45.github.io/todo/json/taskList.json", Render);
 
 
 
