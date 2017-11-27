@@ -2,8 +2,8 @@
     "result":"ok",
     "data": [
       
-        {"id":2, 
-        "name":"할일 1",
+        {"id":3, 
+        "name":"새 할일",
         "myday":false, 
         "duedate":null,
         "fre_alert":null, 
@@ -11,31 +11,7 @@
         "repeat":null, 
         "done":false 
 
-        },
-        { "id":2, 
-            "name":"할일 2",
-            "myday":true, 
-            "duedate":"2017:11:15",
-            "fre_alert":"2017:11:15:11:50", 
-            "note": "hi",
-            "repeat":[{"weeks":"3"},
-                 {"weekday":["mon", "tue"]},
-                 {"month":"11"},
-                 {"date":"11"}], 
-               
-            "done":true 
-         },
-
-         { "id":2, 
-            "name":"new name",  
-            "myday":false, 
-            "duedate":null,
-            "fre_alert":null, 
-            "note": null,
-            "repeat":null 
-         }
-
-
+        }
 
 
     ]

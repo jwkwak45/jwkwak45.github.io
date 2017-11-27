@@ -3,14 +3,23 @@
 
         <style>
 
-        div{
+        body{
+
+                    margin: 0px;
+                }
+
+        .tl{
             height: 35px;
+            margin: 5px;
+            
         }
 
-        #addbutton{
+        #addlistbutton{
            
             position: fixed;
-            bottom: 5px;
+            left: 5px;
+            bottom: 5%;
+            
 
 
         }
@@ -23,25 +32,89 @@
             color: gray;
 
         }
+        
+        #taskview{
+
+            display: none;
+        }
+
+        .tasks{
+                 height: 50px;
+                 margin: 10px;
+                 border-bottom: 1px solid #afafaf;
+
+             }
+
+                #header{
+
+                    background-color: green;
+                    
+                    height: 100px;
+
+
+                }
+
+                #backtolist{
+
+                    position: absolute; left: 3%; top:3%
+
+                }
+
+                #detailmenu{
+                    position: absolute; right: 3%; top:3%
+                }
+
+                #addtaskbutton{
+                    width: 50px;
+                    height: 50px;
+                    position: absolute; right: 5%; bottom:5%
+                }
+
+            #title{
+
+                font-size: 15pt;
+                position: absolute; left: 20%; top: 5%
+
+
+            }
+                
 
 
         
         </style>
-        <!-- 새 목록 추가 버튼은, 안드로이드 어플을 따라 바닥에 고정으로 하였습니다. PC 버전은 살짝 다른것으로 알고 있습니다. -->
+      
         
         
     </head>
     <body>
         
+        <section id = "main">
         <section id = "list">
         
 
         </section>
 
-        <div id ="addbutton", style="color: #5166af; background: white; width:100% " >
+        <div id ="addlistbutton", style="color: #5166af; background: white; width:100% " >
             + 새 목록 
         </div>
-    
+    </section>
+
+    <section id= "taskview">
+            <section id= "header">
+
+            <div id="menu" style="color:white"> <span id= "backtolist"> &#9776;  </span>   <span id=detailmenu> &#8942; </span></div>
+            
+
+            </section>
+
+            <section id = "tlist">
+
+
+            </section>
+
+            <img src="https://jwkwak45.github.io/todo/source/plus.svg" id = "addtaskbutton" alt="addtaskbutton">
+            </section>
+           
             
     <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -49,6 +122,11 @@
     crossorigin="anonymous"></script>
     <script>
     
+
+    var groupListURL = "https://jwkwak45.github.io/todo/json/groupList.json";
+    var groupAddURL = "https://jwkwak45.github.io/todo/json/groupAdd.json";
+    var taskListURL = "https://jwkwak45.github.io/todo/json/taskList.json";
+    var taskAddURL = "https://jwkwak45.github.io/todo/json/taskAdd.json";
     var Render = function(data,status){
         console.log(data);
         $.each(data.data,function(i,n){
@@ -76,54 +154,128 @@
     });
 
     }
-    
-    $.get("https://jwkwak45.github.io/todo/json/groupList.json", Render);
-
-
-    $("#addbutton").click(function(e){
-
-       var newname = prompt("새 목록")
-
-    $.get("https://jwkwak45.github.io/todo/json/groupAdd.json" , {"name":newname},Render);
-
-
-    });
 
    
 
+    $.get(groupListURL, Render);
+
+
+    $("#addlistbutton").click(function(e){
+
+       var newname = prompt("새 목록")
+
+    $.get(groupAddURL , {"name":newname},Render);
+        
+
+    });
+
+
     $("#list").on('click',".tl",function(e){
 
+        $("#main").css("display","none")
+        $("#taskview").css("display","block")
         var idvalue = $(this).attr("idvalue")
-
-        var listname ="";
-        var icon = "";
-        var color = "";
-
-        $.get("https://jwkwak45.github.io/todo/json/groupList.json",{id:idvalue},function(data,status){
+       $.get(groupListURL,function(data,status){
+           var listname = "";
+           var icon = "";
+           var color = "";
             $.each(data.data,function(i,n){
                 if(n.id == idvalue){
-                    listname = n.name;
-                    icon = n.icon;
+                    listname = n.name
+                    icon = n.icon
                     color = n.color;
-
-                }
+                }            
             });
-           
+
+    var taskRender = function(data,status){
+        console.log(data);
+        $.each(data.data,function(i,n){
+            var done = "";
+            var myday = "";
+            var duedate = "";
+            var repeat = "";
+            var alarm = "";
+            var note = "";
+
+            if(n.id == idvalue){
+                console.log(n.id)
+                console.log(idvalue)
+
+            if(n.done == false){
+                done =  "<img src = " + '"https://jwkwak45.github.io/todo/source/check_undone.svg"' +"width = '20px'; height = '20px';"+ "/>";
+
+            }
+            else {
+                done = "<img src = " + '"https://jwkwak45.github.io/todo/source/check_done.svg"' +"width = '20px'; height = '20px';"+ "/>";
+            }
+
+        if(n.myday != null){
+            myday =  "<img src = " + '"https://jwkwak45.github.io/todo/source/sun_gray.svg"' +"width = '20px'; height = '20px';"+ "/>"+ '<span style="color:#6465ea; font-size:9pt ">오늘 할 일 </span>';
+        }
+
+        if(n.duedate != null){
+
+
+            if(n.repeat != null){
+                repeat = "↺";
+            }
+
+        }
+
+        if(n.fre_alert != null){
+            alarm ='<span style="color:gray"> • </span>'+ "<img src = " + '"https://jwkwak45.github.io/todo/source/alarmclock.svg"' +"width = '15px'; height = '15px';"+ "/>";
+        }
+
+        if(n.note != null){
+
+            note =  '<span style="color:gray"> • </span>'+"<img src = " + '"https://jwkwak45.github.io/todo/source/note.svg"' +"width = '15px'; height = '15px';"+ "/>";
+        }
+
+
+
+        $("#tlist").append( '<div class="tasks">'+ done + "&nbsp;&nbsp;"+ n.name  +'<br><span class = "detail">'+ myday +alarm+note+ "</span>  </div>");
+            
+        } 
+        
+    });
+
+    
+   $("#addtaskbutton").click(function(e){
+
+       var newname = prompt("새 할 일")
+
+    $.get(taskAddURL , {"name":newname, "id":idvalue},taskRender);
+    ///현재는 id 값 때문에 3번에만 추가 됩니다!!!
+        
+
+    });
+
+    $("#header").append( '<div id = "title">'+ icon + "&nbsp;&nbsp;"+ listname + "</div>");
+    $("#header").css("background-color",color);
+
+    }
+
+
+           $.get(taskListURL,taskRender);
+
         });
+
+
         
         
         console.log( idvalue)
 
-        $.get("https://jwkwak45.github.io/todo/tasklist.html",{id:idvalue},function(e){
-           location.replace("https://jwkwak45.github.io/todo/tasklist.html");
-            
-            
-        });
-
 
     });
 
-  
+   $("#backtolist").click(function(e){
+        $("#main").css("display","block")
+        $("#taskview").css("display","none")
+        $("#title").remove();
+        $("#tlist").empty();
+
+   });
+
 
 
     </script>

@@ -5,25 +5,25 @@
         "name":"오늘 할 일",
         "color":"#2971b8",
         "icon":"sun",
-        "count":5
+        "count":2
         },
         {"id":2,
             "name":"To-Do",
             "color":"#2971b8",
             "icon":"check",
-            "count":2
+            "count":0
          },
          {"id":3,
             "name":"제목 없는 목록",
             "color":"green",
             "icon":"&#8942;&#9776;",
-            "count":0
+            "count":4
          },
          {"id":4, 
             "name":"제목 없는 목록 (1)", 
             "color":"#2971b8",
             "icon":"&#8942;&#9776;", 
-            "count":4
+            "count":5
          },
          {"id":5, 
             "name":"과제", 
