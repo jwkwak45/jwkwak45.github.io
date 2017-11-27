@@ -260,14 +260,10 @@
 
         });
 
-    
 
-
-        
-        
-        console.log( idvalue)
 
         $("#tlist").on('click',".done",function(e){
+            // 리스트를 들어갔다 나오면 에러가 생기는데 다시 들어가면 정상적으로 작동합니다...
        var undone = "https://jwkwak45.github.io/todo/source/check_undone.svg";
        var done = "https://jwkwak45.github.io/todo/source/check_done.svg";
        if($(this).attr("src") == undone)
