@@ -100,7 +100,7 @@
             }
 
         if(n.myday != null){
-            myday = '☀ <span style="color:#6465ea; font-size:8pt ">오늘 할 일 </span>';
+            myday =  "<img src = " + '"https://jwkwak45.github.io/todo/source/sun_gray.svg"' +"width = '20px'; height = '20px';"+ "/>";+ '<span style="color:#6465ea; font-size:9pt ">오늘 할 일 </span>';
         }
 
         if(n.duedate != null){
@@ -113,12 +113,12 @@
         }
 
         if(n.fre_alert != null){
-            alarm = "<img src = " + '"https://jwkwak45.github.io/todo/source/alarmclock.svg"' +"width = '15px'; height = '15px';"+ "/>";
+            alarm ='<span style="color:gray"> • </span>'+ "<img src = " + '"https://jwkwak45.github.io/todo/source/alarmclock.svg"' +"width = '15px'; height = '15px';"+ "/>";
         }
 
         if(n.note != null){
 
-            note = "<img src = " + '"https://jwkwak45.github.io/todo/source/note.svg"' +"width = '15px'; height = '15px';"+ "/>";
+            note =  '<span style="color:gray"> • </span>'+"<img src = " + '"https://jwkwak45.github.io/todo/source/note.svg"' +"width = '15px'; height = '15px';"+ "/>";
         }
 
 
