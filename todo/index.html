@@ -202,11 +202,11 @@
                 console.log(idvalue)
 
             if(n.done == false){
-                done =  "<img src = " + '"https://jwkwak45.github.io/todo/source/check_undone.svg"' +"width = '20px'; height = '20px';"+ "/>";
+                done = "<img src = " + '"https://jwkwak45.github.io/todo/source/check_undone.svg"' +'class = "done" '+" width = '20px'; height = '20px';"+ "/>";
 
             }
             else {
-                done = "<img src = " + '"https://jwkwak45.github.io/todo/source/check_done.svg"' +"width = '20px'; height = '20px';"+ "/>";
+                done = "<img src = " + '"https://jwkwak45.github.io/todo/source/check_done.svg"' +'class = "done" ' +"width = '20px'; height = '20px';"+ "/>";
             }
 
         if(n.myday != null){
@@ -250,21 +250,47 @@
 
     });
 
+   
+    }
     $("#header").append( '<div id = "title">'+ icon + "&nbsp;&nbsp;"+ listname + "</div>");
     $("#header").css("background-color",color);
-
-    }
 
 
            $.get(taskListURL,taskRender);
 
         });
 
+    
+
 
         
         
         console.log( idvalue)
 
+        $("#tlist").on('click',".done",function(e){
+       var undone = "https://jwkwak45.github.io/todo/source/check_undone.svg";
+       var done = "https://jwkwak45.github.io/todo/source/check_done.svg";
+       if($(this).attr("src") == undone)
+       {
+
+        $.get(taskListURL , {"id":idvalue , "done":"undone"})
+
+        $(this).attr("src",done);
+
+       }
+
+       else
+       {
+
+        $.get(taskListURL , {"id":idvalue , "done":"undone"});
+
+        $(this).attr("src", undone);
+
+       }
+
+
+
+   });
 
     });
 
@@ -276,6 +302,8 @@
 
    });
 
+
+  
 
 
     </script>
