@@ -268,7 +268,7 @@
        var done = "https://jwkwak45.github.io/todo/source/check_done.svg";
        if($(this).attr("src") == undone)
        {
-
+        // 추후 json을 고쳐 taskid 를 새로 부여하여, 버튼을 누르면 수정된 것을 데이터에 반영 할 수 있도록 할 예정입니다.
         $.get(taskListURL , {"id":idvalue , "done":"undone"})
 
         $(this).attr("src",done);
