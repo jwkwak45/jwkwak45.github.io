@@ -126,14 +126,19 @@
 
         // 시작함수
         function init(){
+
+             //여기서 사용되는 id 는 위에서 사용된 var id = location.search.substr(4); 입니다.
+
             $("#addbutton").click(function(e){
                 
                        var newname = prompt("새 할 일")
-                       network("taskAdd",taskRender, newname);
+
+                       // id 를 추가해줘서 목록과 연계합니다.
+                       network("taskAdd",taskRender, {name:newname,id:id});
 
                     });
       
-        network("taskList",taskRender,location.search.substr(4))
+        network("taskList",taskRender,id)
         network("list",titleRender);
         }
 

@@ -48,7 +48,7 @@
                     //end({data[....]}); 이런식으로 오프라인에서 테스트...
                     break;
                     case"taskAdd":
-                    $.get(URLS.prefix + URLS.taskAdd, {name:arg},end);
+                    $.get(URLS.prefix + URLS.taskAdd, arg,end);
                     //data.data.push({name:arg....});
                     //end(data);
                     break;
