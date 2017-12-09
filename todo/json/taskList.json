@@ -4,7 +4,8 @@
     "data": [
 
        
-        {"id":1, 
+        {"id":1,
+        "tid":1,
         "name":"할일 1",
         "myday":false, 
         "duedate":null,
@@ -15,8 +16,9 @@
 
 
         },
-        {"id":1, 
-            "name":"할일 1",
+        {"id":1,
+            "tid":2, 
+            "name":"다른 할 일",
             "myday":false, 
             "duedate":null,
             "fre_alert":null,
@@ -26,7 +28,8 @@
     
     
             },
-            {"id":3, 
+            {"id":3,
+                "tid":3, 
                 "name":"할일 1",
                 "myday":false, 
                 "duedate":null,
@@ -37,7 +40,8 @@
         
         
                 },
-                {"id":3, 
+                {"id":3,
+                    "tid":4,
                     "name":"할일 1",
                     "myday":false, 
                     "duedate":null,
@@ -49,7 +53,8 @@
             
                     },
 
-        { "id":3, 
+        { "id":3,
+            "tid":5,
             "name":"할일 2",
             "myday":true, 
             "duedate":"2017:11:15", 
@@ -63,7 +68,8 @@
             "done":true 
          },
 
-         { "id":3, 
+         { "id":3,
+            "tid":6, 
             "name":"할일 3",
             "myday":true, 
             "duedate":"2017:11:15", 
@@ -78,6 +84,7 @@
          },
 
          { "id":3, 
+            "tid":7,
             "name":"할일 4",
             "myday":false, 
             "duedate":"2017:11:15", 

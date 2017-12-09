@@ -1,146 +1,146 @@
-<!-- 사용하지 않기로 결정하였습니다.
+
 <html>
         <head>
-
-            <style>
-
-                body{
-
-                    margin: 0px;
-                }
-
-                .tasks{
-                 height: 50px;
-                 margin: 10px;
-                 border-bottom: 1px solid #afafaf;
-
-             }
-
-                #header{
-
-                    background-color: #6465ea;
-                    
-                    height: 100px;
-
-
-                }
-
-                #backtolist{
-
-                    position: absolute; left: 3%; top:3%
-
-                }
-
-                #detailmenu{
-                    position: absolute; right: 3%; top:3%
-                }
-
-                #addbutton{
-                    width: 50px;
-                    height: 50px;
-                    position: absolute; right: 5%; bottom:5%
-                }
-                
-
-            </style>
-
-    
+        <link rel="stylesheet" type="text/css" href="css/tasklist.css">
         </head>
     
         <body>
 
-
-
-            <section taskview>
+            
+            <!--헤더-->
             <section id= "header">
 
-            <div id="menu" style="color:white"> <span id= "backtolist"> &#9776;  </span>   <span id=detailmenu> &#8942; </span></div>
-            
+            <div id="menu" style="color:white"> <a href="https://jwkwak45.github.io/todo/index.html"> <span id= "backtolist"> &#9776;  </span> </a><span id="title">  </span> <span id=detailmenu> &#8942; </span></div>
 
             </section>
 
-            <section id = "list">
+            <!--실제 리스트-->
+            <section id = "tlist">
 
 
             </section>
 
-            </section>
+            <!--추가버튼-->
             <img src="https://jwkwak45.github.io/todo/source/plus.svg" id = "addbutton" alt="addbutton">
 
-
+             <!--제이쿼리-->
                 <script
                 src="https://code.jquery.com/jquery-3.2.1.min.js"
                 integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
                 crossorigin="anonymous"></script>
 
-
-            <script>
-
-                idvalue = 3;
-
-        var Render = function(data,status){
-        console.log(data);
-        $.each(data.data,function(i,n){
-            var done = "";
-            var myday = "";
-            var duedate = "";
-            var repeat = "";
-            var alarm = "";
-            var note = "";
-
-            if(n.done == false){
-                done =  "<img src = " + '"https://jwkwak45.github.io/todo/source/check_undone.svg"' +"width = '20px'; height = '20px';"+ "/>";
-
-            }
-            else {
-                done = "<img src = " + '"https://jwkwak45.github.io/todo/source/check_done.svg"' +"width = '20px'; height = '20px';"+ "/>";
-            }
-
-        if(n.myday != null){
-            myday =  "<img src = " + '"https://jwkwak45.github.io/todo/source/sun_gray.svg"' +"width = '20px'; height = '20px';"+ "/>"+ '<span style="color:#6465ea; font-size:9pt ">오늘 할 일 </span>';
-        }
-
-        if(n.duedate != null){
-
-
-            if(n.repeat != null){
-                repeat = "↺";
-            }
-
-        }
-
-        if(n.fre_alert != null){
-            alarm ='<span style="color:gray"> • </span>'+ "<img src = " + '"https://jwkwak45.github.io/todo/source/alarmclock.svg"' +"width = '15px'; height = '15px';"+ "/>";
-        }
-
-        if(n.note != null){
-
-            note =  '<span style="color:gray"> • </span>'+"<img src = " + '"https://jwkwak45.github.io/todo/source/note.svg"' +"width = '15px'; height = '15px';"+ "/>";
-        }
-
-
-       
-
-        if(n.id = idvalue){
-
-            $("#list").append( '<div class="tasks">'+ done + "&nbsp;&nbsp;"+ n.name  +'<br><span class = "detail">'+ myday +alarm+note+ "</span>  </div>");
+            <!--메인파일-->
+            <script src="main.js"></script>
             
-        }
-       
-       $("header").append()
-       
+            <!--실제 스크립트-->
+            <script>
         
+        //현재 선택된 리스트의 id 값
+        var id = location.search.substr(4);
+
+        //할 일 렌더링 함수
+        var current;
+        var taskRender = function(data,status){
+            $("#tlist").empty();            
+            current = data.data;
+            var item;
+            //현재 데이터를 변환할 수 없어 자꾸 complete가 렌더링 과정에서 원래 데이터 베이스 값과 동기화 하는 바람에, toggleComplete 대신 그냥 모양을 바꾸는 함수를 사용하였습니다
+            // 추후 onclick="toggleComplete(this,'+i+')" 으로 교체하면 바로 사용할 수 있을것으로 보입니다.
+            for(i=0;i<current.length;i++){
+                item = current[i];
+                var complete = '<img onclick="nowchange(this)" style="width:20px;height:20px;" src="'+
+                            URLS.icon[item.done ? 'checked' : 'unchecked']+ 
+                            '" alt="'+(item.done ?'completed':'incompleted') +'" />';
+                var myday = "";
+                var duedate = "";
+                var repeat = "";
+                var alarm = "";
+                var note = "";
+    
+                if(item.id == id){ ///저는 지금은 전체 taskList의 있는 것 중, 현재 선택된 리스트와 같은 id 값을 가지고 있는 것만 출력되도록 구성하였습니다.
+                    //추후 데이터베이스에 요청이 가능해 질 때는 이 조건문을 수정할 생각입니다.
+
+            if(item.myday != null){ myday =  URLS.icon.myday         }
+    
+            if(item.duedate != null){   
+                if(item.repeat != null){    repeat = "↺";       }
+             }
+    
+            if(item.fre_alert != null){   alarm = URLS.icon.alarm;  }
+    
+            if(item.note != null){  note =  URLS.icon.note; }
+    
+            $("#tlist").append( '<div class="tasks">'+ complete +
+                 '&nbsp;&nbsp; <span class = "taskname">'+
+                     item.name  +'</span> <br><span class = "detail">'+
+                         myday +alarm+note+ "</span>  </div>");
+                
+            } 
+            
+        };
+    
+        }
+        
+        
+        // 제목 렌더링(아이콘 값을 가져오도록)
+        var titleRender = function(data,status){
+            $("#title").empty();
+            $.each(data.data,function(i,n){
+            titleicon = ""
+            if(n.id == id){
+        
+        if (n.icon != "&#8942;&#9776;" && n.icon != "sun" && n.icon != "check" ){
+        titleicon = n.icon    
+        }
+        $("#title").append( '<div>'+ titleicon + "&nbsp;"+ n.name + "</div>");
+        }
+
+       
+
     });
 
-    }
-
-            $.get("https://jwkwak45.github.io/todo/json/taskList.json", Render);
+        }
 
 
 
+    //완료 표시
+        function toggleComplete(img, i){
+
+            var item = current[i];
+            var done = !item.done
+            network("toggleComplete",taskRender,{tid:item.tid, done:done});
+            console.log("hi")         
+        };
+
+        //임시로 사용되는 완료표시 변환
+        function nowchange(self){
+            if($(self).attr("alt")=="incompleted"){
+                  $(self).attr("alt","completed");
+                  $(self).attr("src", URLS.icon.checked);
+              }else{
+                  $(self).attr("alt","incompleted");
+                  $(self).attr("src", URLS.icon.unchecked);
+              }
+        };
 
 
-            </script>
+        // 시작함수
+        function init(){
+            $("#addbutton").click(function(e){
+                
+                       var newname = prompt("새 할 일")
+                       network("taskAdd",taskRender, newname);
+                     
+                
+                    });
+      
+        network("taskList",taskRender,location.search.substr(4))
+        network("list",titleRender);
+        }
+
+        init();
+            
+        </script>
 
 
     
@@ -150,6 +150,6 @@
 
 </html>
 
-    -->
+
     
     

@@ -1,0 +1,47 @@
+    body{
+                    
+    margin: 0px;
+    }
+
+    #title{
+        
+    font-size: 15pt;
+    position: absolute; left: 20%; top: 5%
+         
+    }
+
+    .tasks{
+     height: 50px;
+     margin: 10px;
+     border-bottom: 1px solid #afafaf;
+                    
+    }
+                    
+    #header{
+     background-color: #6465ea;
+     height: 100px;
+     
+    }
+                    
+    #backtolist{
+    color: white;
+    position: absolute; left: 3%; top:3%
+                    
+    }
+                    
+    #detailmenu{
+    color: white;
+    position: absolute; right: 3%; top:3%
+    
+    }
+                    
+    #addbutton{
+    
+    width: 50px;
+    height: 50px;
+    position: absolute; right: 5%; bottom:5%
+
+    }
+
+
+                                    

@@ -1,0 +1,32 @@
+
+            .tl{
+                height: 35px;
+                
+            }
+    
+
+            #addlistbutton{
+               
+                position: fixed;
+                height: 35px;
+                width:100%;
+                background-color: white;
+                bottom: 5%;
+                color: #5166af;
+            }
+
+            .count{
+                position: absolute;
+                right: 5%;
+                color: gray;
+    
+            }
+
+
+
+
+
+    
+
+                    
+    

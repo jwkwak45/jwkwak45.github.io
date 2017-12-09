@@ -1,8 +1,105 @@
 {
     "result":"ok",
     "data": [
+                   
+                    {"id":1,
+                    "tid":1,
+                    "name":"할일 1",
+                    "myday":false, 
+                    "duedate":null,
+                    "fre_alert":null,
+                    "note": null, 
+                    "repeat":null, 
+                    "done":false 
+            
+            
+                    },
+                    {"id":1,
+                        "tid":2, 
+                        "name":"다른 할 일",
+                        "myday":false, 
+                        "duedate":null,
+                        "fre_alert":null,
+                        "note": null, 
+                        "repeat":null, 
+                        "done":false 
+                
+                
+                        },
+                        {"id":3,
+                            "tid":3, 
+                            "name":"할일 1",
+                            "myday":false, 
+                            "duedate":null,
+                            "fre_alert":null,
+                            "note": null, 
+                            "repeat":null, 
+                            "done":false 
+                    
+                    
+                            },
+                            {"id":3,
+                                "tid":4,
+                                "name":"할일 1",
+                                "myday":false, 
+                                "duedate":null,
+                                "fre_alert":null,
+                                "note": null, 
+                                "repeat":null, 
+                                "done":false 
+                        
+                        
+                                },
+            
+                    { "id":3,
+                        "tid":5,
+                        "name":"할일 2",
+                        "myday":true, 
+                        "duedate":"2017:11:15", 
+                        "fre_alert":"2017:11:15:11:50", 
+                        "note": "hi", 
+                        "repeat":[{"weeks":"3"},
+                             {"weekday":["mon", "tue"]},
+                             {"month":"11"},
+                             {"date":"11"}] ,
+                        
+                        "done":true 
+                     },
+            
+                     { "id":3,
+                        "tid":6, 
+                        "name":"할일 3",
+                        "myday":true, 
+                        "duedate":"2017:11:15", 
+                        "fre_alert":"2017:11:15:11:50", 
+                        "note": "hi", 
+                        "repeat":[{"weeks":"3"},
+                             {"weekday":["mon", "tue"]},
+                             {"month":"11"},
+                             {"date":"11"}] ,
+                        
+                        "done":false 
+                     },
+            
+                     { "id":3, 
+                        "tid":7,
+                        "name":"할일 4",
+                        "myday":false, 
+                        "duedate":"2017:11:15", 
+                        "fre_alert":"2017:11:15:11:50", 
+                        "note": "hi", 
+                        "repeat":[{"weeks":"3"},
+                             {"weekday":["mon", "tue"]},
+                             {"month":"11"},
+                             {"date":"11"}] ,
+                        
+                        "done":false 
+                     },
+            
+            
       
-        {"id":3, 
+        {"id":3,
+        "tid":8, 
         "name":"새 할일",
         "myday":false, 
         "duedate":null,
@@ -11,7 +108,18 @@
         "repeat":null, 
         "done":false 
 
-        }
+        },
+        {"id":1,
+            "tid":8, 
+            "name":"새 할일",
+            "myday":false, 
+            "duedate":null,
+            "fre_alert":null, 
+            "note": null, 
+            "repeat":null, 
+            "done":false 
+    
+            }
 
 
     ]
