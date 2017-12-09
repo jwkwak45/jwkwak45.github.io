@@ -58,7 +58,6 @@
                 var note = "";
     
                 if(item.id == id){ ///저는 지금은 전체 taskList의 있는 것 중, 현재 선택된 리스트와 같은 id 값을 가지고 있는 것만 출력되도록 구성하였습니다.
-                    // 그렇기에 현재 추가 가능한 목록은 taskAdd에 그에 맞는 id가 들어있는 1번(오늘할일)과 3번(제목 없는 목록) 뿐입니다.
                     //추후 데이터베이스에 요청이 가능해 질 때는 이 조건문을 수정할 생각입니다.
 
             if(item.myday != null){ myday =  URLS.icon.myday         }
@@ -94,7 +93,7 @@
         titleicon = n.icon    
         }
         $("#title").append( '<div>'+ titleicon + "&nbsp;"+ n.name + "</div>");
-        $("#header").css("background-color",n.color);
+        $("#header").css("background-color", n.color);
 
         }
 
