@@ -54,7 +54,6 @@
                     break;
                     case"toggleComplete":
                     $.get(URLS.prefix + URLS.taskList,arg,end);
-                    
                     break;
 
                     default: throw "invalid command";

@@ -62,8 +62,8 @@
                     
                  var name = prompt("새 목록");
                  name = name.trim();
-                if(!name && name.length < 3){
-                alert("2자 이상의 할 일을 적어주세요");
+                if(!name || name.length < 3){
+                alert("2자 이상의 이름을 적어주세요");
                  return;
                 }
 
