@@ -8,7 +8,7 @@
 
             
             <!--헤더-->
-            <section id= "header">
+            <section id= "header" style="background-color:green">
 
             <div id="menu" style="color:white"> <a href="https://jwkwak45.github.io/todo/index.html"> <span id= "backtolist"> &#9776;  </span> </a><span id="title">  </span> <span id=detailmenu> &#8942; </span></div>
 
@@ -58,6 +58,7 @@
                 var note = "";
     
                 if(item.id == id){ ///저는 지금은 전체 taskList의 있는 것 중, 현재 선택된 리스트와 같은 id 값을 가지고 있는 것만 출력되도록 구성하였습니다.
+                    // 그렇기에 현재 추가 가능한 목록은 taskAdd에 그에 맞는 id가 들어있는 1번(오늘할일)과 3번(제목 없는 목록) 뿐입니다.
                     //추후 데이터베이스에 요청이 가능해 질 때는 이 조건문을 수정할 생각입니다.
 
             if(item.myday != null){ myday =  URLS.icon.myday         }
@@ -74,7 +75,7 @@
                  '&nbsp;&nbsp; <span class = "taskname">'+
                      item.name  +'</span> <br><span class = "detail">'+
                          myday +alarm+note+ "</span>  </div>");
-                
+
             } 
             
         };
@@ -82,7 +83,7 @@
         }
         
         
-        // 제목 렌더링(아이콘 값을 가져오도록)
+        // 제목 렌더링(아이콘, 이름, 테마 색깔을 가져오도록) 
         var titleRender = function(data,status){
             $("#title").empty();
             $.each(data.data,function(i,n){
@@ -93,6 +94,8 @@
         titleicon = n.icon    
         }
         $("#title").append( '<div>'+ titleicon + "&nbsp;"+ n.name + "</div>");
+        $("#header").css("background-color",n.color);
+
         }
 
        
@@ -103,7 +106,7 @@
 
 
 
-    //완료 표시
+    // 할 일 완료
         function toggleComplete(img, i){
 
             var item = current[i];
