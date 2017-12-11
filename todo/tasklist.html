@@ -44,8 +44,7 @@
             $("#tlist").empty();            
             current = data.data;
             var item;
-            //현재 데이터를 변환할 수 없어 자꾸 완료표시가 렌더링 과정에서 원래 데이터 베이스 값과 동기화 하는 바람에, toggleComplete 대신 그냥 모양을 바꾸는 함수를 사용하였습니다
-            // onclick="toggleComplete(this,'+i+')" 으로 교체하면 데이터 베이스 연동 시 바로 사용할 수 있을것으로 보입니다.
+            //현재 json 데이터를 변환할 수 없어, main.js 에서 바꿨습니다.
             for(i=0;i<current.length;i++){
                 item = current[i];
                 
@@ -121,16 +120,6 @@
             console.log("hi")         
         };
 
-        //임시로 사용되는 완료표시 변환 함수
-        function nowchange(self){
-            if($(self).attr("alt")=="incompleted"){
-                  $(self).attr("alt","completed");
-                  $(self).attr("src", URLS.icon.checked);
-              }else{
-                  $(self).attr("alt","incompleted");
-                  $(self).attr("src", URLS.icon.unchecked);
-              }
-        };
 
 
         // 시작함수
