@@ -48,7 +48,8 @@
             // onclick="toggleComplete(this,'+i+')" 으로 교체하면 데이터 베이스 연동 시 바로 사용할 수 있을것으로 보입니다.
             for(i=0;i<current.length;i++){
                 item = current[i];
-                var complete = '<img onclick="nowchange(this)" style="width:20px;height:20px;" src="'+
+                
+                var complete = '<img onclick="toggleComplete(this,'+i+')" style="width:20px;height:20px;" src="'+
                             URLS.icon[item.done ? 'checked' : 'unchecked']+ 
                             '" alt="'+(item.done ?'completed':'incompleted') +'" />';
                 var myday = "";
@@ -107,7 +108,15 @@
         function toggleComplete(img, i){
 
             var item = current[i];
-            var done = !item.done
+            var done = item.done
+            if (item.done == true){
+                done = false
+            }else
+            {
+                done =true;
+            }
+
+            
             network("toggleComplete",taskRender,{tid:item.tid, done:done});
             console.log("hi")         
         };

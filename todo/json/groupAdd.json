@@ -5,47 +5,36 @@
             "name":"오늘 할 일",
             "color":"#2971b8",
             "icon":"sun",
-            "count":2
+            "count":1
             },
             {"id":2,
                 "name":"To-Do",
                 "color":"#2971b8",
                 "icon":"check",
-                "count":0
+                "count":1
              },
              {"id":3,
                 "name":"제목 없는 목록",
                 "color":"green",
                 "icon":"&#8942;&#9776;",
-                "count":4
+                "count":3
              },
              {"id":4, 
-                "name":"제목 없는 목록 (1)", 
-                "color":"#2971b8",
-                "icon":"&#8942;&#9776;", 
-                "count":0
-             },
-             {"id":5, 
                 "name":"과제", 
                 "color":"purple",
                 "icon":"&#8942;&#9776;", 
-                "count":0
+                "count":1
              },
-             {"id":6, 
+             {"id":5, 
                 "name":"축구부", 
                 "color":"#2971b8",
                 "icon":"&#x26BD;", 
-                "count":0
-             },
-             {"id":7, 
-                "name":"가족행사", 
-                "color":"#2971b8",
-                "icon":"👪", 
-                "count":0
+                "count":1
              }
              
-        ,
-         {"id":8, 
+    
+        ,    
+         {"id":6, 
             "name":"제목 없는 목록", 
             "color":"#2971b8",
             "icon":"&#8942;&#9776;", 
