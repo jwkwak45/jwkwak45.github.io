@@ -103,21 +103,14 @@
 
 
 
-    // 할 일 완료 체크
+    // 할 일 완료 체크 , task id(tid) 를 확인하여 바꿔줍니다. 
         function toggleComplete(img, i){
 
             var item = current[i];
-            var done = item.done
-            if (item.done == true){
-                done = false
-            }else
-            {
-                done =true;
-            }
-
+            var done = !item.done
             
             network("toggleComplete",taskRender,{tid:item.tid, done:done});
-            console.log("hi")         
+        
         };
 
 

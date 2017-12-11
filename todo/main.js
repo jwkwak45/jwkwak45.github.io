@@ -143,9 +143,12 @@
                     break;
                     case"taskAdd":
                     //$.get(URLS.prefix + URLS.taskAdd, arg,end);
+                    // index를 통해, DB에서 자동으로 부여될 tid를 구현해보았습니다.
+                    index = URLS.data.data.length+1
                     URLS.data.data.push({
                     "id":arg.id,
                     "name":arg.name,
+                    "tid":index,
                     "myday":false, 
                     "duedate":null,
                     "fre_alert":null, 
@@ -161,9 +164,7 @@
                         item = URLS.data.data[i]
                         if(item.tid == arg.tid){
                             item.done = arg.done;
-
                         }
-
                     };
                     end(URLS.data,"ok");
 
